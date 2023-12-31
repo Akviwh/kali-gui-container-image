@@ -3,7 +3,7 @@ FROM kalilinux/kali-rolling
 
 ENV DEBIAN_FRONTEND=noninteractive
 # hadolint ignore=DL3008
-RUN apt-get update && apt-get install -y --no-install-recommends \ 
+RUN sudo apt-get update && apt-get install -y --no-install-recommends \ 
  ca-certificates \
  bash-completion \
  bsdmainutils \
@@ -25,7 +25,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
  xfce4 xfce4-whiskermenu-plugin xfce4-indicator-plugin xfce4-terminal \
  xorg xserver-xorg \
  numix-icon-theme numix-icon-theme-circle \
- && apt-get upgrade -y && apt-get clean -y \
+ && sudo apt-get upgrade -y && sudo apt-get clean -y \
  && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 RUN locale-gen en_US && \
